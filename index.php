@@ -6,6 +6,7 @@
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 <script src="chart/chart.bundle.js"></script>
 <script src="chart/utils.js"></script>
+<script src="printArea.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css">
@@ -72,6 +73,20 @@ var dataSet = [
     [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
 ];
 
+
+function imprimirMariela(){
+
+	var divToPrint=$("#example").html();
+	console.log(divToPrint);
+	newWin= window.open("");
+	//newWin.document.write(divToPrint);
+	$(newWin.document.body).html(divToPrint);
+	//newWin.print();
+	//newWin.close();
+
+}
+
+
 function getTable(){
 
   $.get("tablas/tabla.html",function(data){
@@ -95,6 +110,8 @@ function getTable(){
 
 
          });
+
+
     }
     function createConfig(position) {
   			return {
@@ -132,6 +149,9 @@ function getTable(){
 
 
       $( document ).ready(function() {
+
+
+
         var container = document.querySelector('.container');
 
         ['average', 'nearest'].forEach(function(position) {
@@ -170,6 +190,8 @@ function getTable(){
 <input type="button" value="boton" onClick="getTable()"/>
 <a href="index2.php">ir a index2</a>
 <a href="index3.php">ir a index3</a>
+<a href="index4.php">ir a index4</a>
+<input type="button" onClick="imprimirMariela()" value="mariela"/>
 
 </body>
 
